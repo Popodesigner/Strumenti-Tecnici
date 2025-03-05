@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimensionamento Vasi di Espansione - Calcoli Idraulici</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="strumenti.css">
+</head>
+<body>
+    <header>
+        <h1>Dimensionamento Vasi di Espansione</h1>
+        <a href="../index.html" class="btn-back">Torna alla Home</a>
+    </header>
+
+    <main class="strumento-container">
+        <div class="form-container">
+            <form id="form-vaso-espansione">
+                <div class="form-group">
+                    <label for="tipo-impianto">Tipo di impianto:</label>
+                    <select id="tipo-impianto" name="tipo-impianto">
+                        <option value="riscaldamento">Riscaldamento</option>
+                        <option value="solare">Solare termico</option>
+                        <option value="refrigerazione">Refrigerazione</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contenuto-acqua">Contenuto d'acqua dell'impianto (litri):</label>
+                    <input type="number" id="contenuto-acqua" name="contenuto-acqua" step="0.1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="temperatura-min">Temperatura minima (°C):</label>
+                    <input type="number" id="temperatura-min" name="temperatura-min" value="10" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="temperatura-max">Temperatura massima (°C):</label>
+                    <input type="number" id="temperatura-max" name="temperatura-max" value="90" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pressione-iniziale">Pressione iniziale (bar):</label>
+                    <input type="number" id="pressione-iniziale" name="pressione-iniziale" step="0.1" value="1.5" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pressione-massima">Pressione massima (bar):</label>
+                    <input type="number" id="pressione-massima" name="pressione-massima" step="0.1" value="3.0" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="percentuale-glicole">Percentuale di glicole (%):</label>
+                    <input type="number" id="percentuale-glicole" name="percentuale-glicole" min="0" max="50" value="0">
+                </div>
+                
+                <button type="submit" class="btn-calcola">Calcola</button>
+            </form>
+        </div>
+        
+        <div class="results-container">
+            <h2>Risultati</h2>
+            <div id="risultati" class="hidden">
+                <div class="result-item">
+                    <span>Coefficiente di espansione:</span>
+                    <span id="coefficiente-espansione">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Volume di espansione:</span>
+                    <span id="volume-espansione">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Fattore di pressione:</span>
+                    <span id="fattore-pressione">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Volume vaso di espansione:</span>
+                    <span id="volume-vaso">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Volume vaso commerciale consigliato:</span>
+                    <span id="volume-commerciale">-</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="STR0004.js"></script>
+</body>
+</html> 

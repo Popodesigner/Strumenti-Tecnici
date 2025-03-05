@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimensionamento Pompa di Calore - Calcoli Idraulici</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="strumenti.css">
+</head>
+<body>
+    <header>
+        <h1>Dimensionamento Pompa di Calore</h1>
+        <a href="../index.html" class="btn-back">Torna alla Home</a>
+    </header>
+
+    <main class="strumento-container">
+        <div class="form-container">
+            <form id="form-pdc">
+                <div class="form-group">
+                    <label for="tipo-pdc">Tipo di pompa di calore:</label>
+                    <select id="tipo-pdc" name="tipo-pdc">
+                        <option value="aria-acqua">Aria-Acqua</option>
+                        <option value="acqua-acqua">Acqua-Acqua</option>
+                        <option value="geotermica">Geotermica</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fabbisogno-termico">Fabbisogno termico edificio (kW):</label>
+                    <input type="number" id="fabbisogno-termico" name="fabbisogno-termico" step="0.1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="temperatura-esterna">Temperatura esterna di progetto (°C):</label>
+                    <input type="number" id="temperatura-esterna" name="temperatura-esterna" value="-5">
+                </div>
+                
+                <div class="form-group">
+                    <label for="temperatura-mandata">Temperatura di mandata impianto (°C):</label>
+                    <input type="number" id="temperatura-mandata" name="temperatura-mandata" value="35">
+                </div>
+                
+                <div class="form-group">
+                    <label for="zona-climatica">Zona climatica:</label>
+                    <select id="zona-climatica" name="zona-climatica">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="superficie">Superficie riscaldata (m²):</label>
+                    <input type="number" id="superficie" name="superficie" step="1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tipo-terminali">Tipo di terminali:</label>
+                    <select id="tipo-terminali" name="tipo-terminali">
+                        <option value="pavimento">Pannelli radianti a pavimento</option>
+                        <option value="parete">Pannelli radianti a parete</option>
+                        <option value="ventilconvettori">Ventilconvettori</option>
+                        <option value="radiatori">Radiatori</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="acs">Produzione ACS:</label>
+                    <select id="acs" name="acs">
+                        <option value="si">Sì</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="persone">Numero di persone:</label>
+                    <input type="number" id="persone" name="persone" value="4" min="1">
+                </div>
+                
+                <button type="submit" class="btn-calcola">Calcola</button>
+            </form>
+        </div>
+        
+        <div class="results-container">
+            <h2>Risultati</h2>
+            <div id="risultati" class="hidden">
+                <div class="result-item">
+                    <span>Potenza termica consigliata:</span>
+                    <span id="potenza-consigliata">-</span>
+                </div>
+                <div class="result-item">
+                    <span>COP stimato:</span>
+                    <span id="cop-stimato">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Consumo elettrico stimato:</span>
+                    <span id="consumo-elettrico">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Fabbisogno ACS:</span>
+                    <span id="fabbisogno-acs">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Volume accumulo consigliato:</span>
+                    <span id="volume-accumulo">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Potenza specifica:</span>
+                    <span id="potenza-specifica">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Classe energetica stimata:</span>
+                    <span id="classe-energetica">-</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="STR0008.js"></script>
+</body>
+</html> 

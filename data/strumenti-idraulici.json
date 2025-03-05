@@ -1,0 +1,34 @@
+{
+  "strumenti": [
+    {
+      "cod": "STR0001",
+      "nome": "Dimensionamento",
+      "categoria": "Tabulazioni",
+      "tipo": "calcola_diametri",
+      "icona": "e_i_STR0001_1.png",
+      "script": "STR0001.html",
+      "calcoli": "Calcoli",
+      "categoria_principale": "idraulici"
+    },
+    {
+      "cod": "STR0002",
+      "nome": "Portata",
+      "categoria": "Pompe",
+      "tipo": "calcola_portata",
+      "icona": "prevalenza_i_STR0002_1.png",
+      "script": "STR0002.html",
+      "calcoli": "Calcoli",
+      "categoria_principale": "idraulici"
+    },
+    {
+      "cod": "STR0003",
+      "nome": "Potenza",
+      "categoria": "Termica",
+      "tipo": "calcola_fabbisogno",
+      "icona": "energetico_i_STR0003_1.png",
+      "script": "STR0003.html",
+      "calcoli": "Calcoli",
+      "categoria_principale": "idraulici"
+    }
+  ]
+} 

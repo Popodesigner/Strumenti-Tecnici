@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimensionamento Tubazioni - Calcoli Idraulici ed Elettrici</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <h1>Dimensionamento Tubazioni</h1>
+        <a href="../index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Torna alla Home</a>
+    </header>
+
+    <div class="strumento-container">
+        <div class="form-container">
+            <form id="form-dimensionamento">
+                <div class="form-group">
+                    <label for="portata">Portata (l/s):</label>
+                    <input type="number" id="portata" name="portata" step="0.01" min="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="velocita">Velocità massima (m/s):</label>
+                    <input type="number" id="velocita" name="velocita" step="0.1" min="0.1" value="1.5" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="materiale">Materiale tubazione:</label>
+                    <select id="materiale" name="materiale">
+                        <option value="rame">Rame</option>
+                        <option value="acciaio">Acciaio</option>
+                        <option value="pvc">PVC</option>
+                        <option value="multistrato">Multistrato</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-calcola">Calcola</button>
+            </form>
+        </div>
+        
+        <div class="results-container">
+            <h2>Risultati</h2>
+            <div id="risultati" class="hidden">
+                <div class="result-item">
+                    <span>Diametro interno minimo:</span>
+                    <span id="diametro-minimo">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Diametro commerciale consigliato:</span>
+                    <span id="diametro-commerciale">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Velocità effettiva:</span>
+                    <span id="velocita-effettiva">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Perdita di carico unitaria:</span>
+                    <span id="perdita-carico">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Diametri commerciali disponibili:</span>
+                    <div id="diametri-disponibili" class="valori-container">
+                        <!-- Tabella dei diametri disponibili -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="STR0001.js"></script>
+</body>
+</html> 

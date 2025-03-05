@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolo Potenza Termica - Calcoli Idraulici</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="strumenti.css">
+</head>
+<body>
+    <header>
+        <h1>Calcolo Potenza Termica</h1>
+        <a href="../index.html" class="btn-back">Torna alla Home</a>
+    </header>
+
+    <main class="strumento-container">
+        <div class="form-container">
+            <form id="form-potenza">
+                <div class="form-group">
+                    <label for="tipo-calcolo">Tipo di calcolo:</label>
+                    <select id="tipo-calcolo" name="tipo-calcolo">
+                        <option value="riscaldamento">Fabbisogno riscaldamento</option>
+                        <option value="raffrescamento">Fabbisogno raffrescamento</option>
+                        <option value="acs">Acqua calda sanitaria</option>
+                    </select>
+                </div>
+                
+                <div id="sezione-edificio">
+                    <h3>Dati edificio</h3>
+                    
+                    <div class="form-group">
+                        <label for="superficie">Superficie (m²):</label>
+                        <input type="number" id="superficie" name="superficie" step="0.1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="altezza">Altezza media (m):</label>
+                        <input type="number" id="altezza" name="altezza" step="0.1" value="2.7" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="classe-energetica">Classe energetica:</label>
+                        <select id="classe-energetica" name="classe-energetica">
+                            <option value="a4">A4</option>
+                            <option value="a3">A3</option>
+                            <option value="a2">A2</option>
+                            <option value="a1">A1</option>
+                            <option value="b">B</option>
+                            <option value="c">C</option>
+                            <option value="d">D</option>
+                            <option value="e">E</option>
+                            <option value="f">F</option>
+                            <option value="g">G</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="zona-climatica">Zona climatica:</label>
+                        <select id="zona-climatica" name="zona-climatica">
+                            <option value="a">A</option>
+                            <option value="b">B</option>
+                            <option value="c">C</option>
+                            <option value="d">D</option>
+                            <option value="e">E</option>
+                            <option value="f">F</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="sezione-acs" class="hidden">
+                    <h3>Dati ACS</h3>
+                    
+                    <div class="form-group">
+                        <label for="persone">Numero di persone:</label>
+                        <input type="number" id="persone" name="persone" min="1" value="4">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="consumo-giornaliero">Consumo giornaliero (l/persona):</label>
+                        <input type="number" id="consumo-giornaliero" name="consumo-giornaliero" value="50">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="temperatura-ingresso">Temperatura acqua in ingresso (°C):</label>
+                        <input type="number" id="temperatura-ingresso" name="temperatura-ingresso" value="12">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="temperatura-uscita">Temperatura acqua in uscita (°C):</label>
+                        <input type="number" id="temperatura-uscita" name="temperatura-uscita" value="45">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-calcola">Calcola</button>
+            </form>
+        </div>
+        
+        <div class="results-container">
+            <h2>Risultati</h2>
+            <div id="risultati" class="hidden">
+                <div class="result-item">
+                    <span>Potenza termica richiesta:</span>
+                    <span id="potenza-termica">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Fabbisogno energetico annuo:</span>
+                    <span id="fabbisogno-annuo">-</span>
+                </div>
+                <div id="result-item-specifico" class="result-item">
+                    <span id="label-specifico">Potenza specifica:</span>
+                    <span id="valore-specifico">-</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="STR0003.js"></script>
+</body>
+</html> 

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertitore di Temperature - Calcoli Idraulici ed Elettrici</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="strumenti.css">
+</head>
+<body>
+    <header>
+        <h1>Convertitore di Temperature</h1>
+        <a href="../index.html" class="btn-back">Torna alla Home</a>
+    </header>
+
+    <main class="strumento-container">
+        <div class="form-container">
+            <form id="form-temperature">
+                <div class="form-group">
+                    <label for="valore">Valore:</label>
+                    <input type="number" id="valore" name="valore" step="any" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="unita-da">Da:</label>
+                    <select id="unita-da" name="unita-da">
+                        <option value="celsius">Celsius (°C)</option>
+                        <option value="fahrenheit">Fahrenheit (°F)</option>
+                        <option value="kelvin">Kelvin (K)</option>
+                        <option value="rankine">Rankine (°R)</option>
+                        <option value="reaumur">Réaumur (°Ré)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="unita-a">A:</label>
+                    <select id="unita-a" name="unita-a">
+                        <option value="celsius">Celsius (°C)</option>
+                        <option value="fahrenheit" selected>Fahrenheit (°F)</option>
+                        <option value="kelvin">Kelvin (K)</option>
+                        <option value="rankine">Rankine (°R)</option>
+                        <option value="reaumur">Réaumur (°Ré)</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-calcola">Converti</button>
+            </form>
+        </div>
+        
+        <div class="results-container">
+            <h2>Risultato</h2>
+            <div id="risultati" class="hidden">
+                <div class="result-item">
+                    <span>Valore convertito:</span>
+                    <span id="valore-convertito">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Formula utilizzata:</span>
+                    <span id="formula-utilizzata">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Tutte le conversioni:</span>
+                    <div id="tutte-conversioni" class="conversioni-container">
+                        <!-- Conversioni in tutte le unità -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="STR0015.js"></script>
+</body>
+</html> 

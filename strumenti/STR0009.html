@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimensionamento Cavi Elettrici - Calcoli Idraulici</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="strumenti.css">
+</head>
+<body>
+    <header>
+        <h1>Dimensionamento Cavi Elettrici</h1>
+        <a href="../index.html" class="btn-back">Torna alla Home</a>
+    </header>
+
+    <main class="strumento-container">
+        <div class="form-container">
+            <form id="form-cavi">
+                <div class="form-group">
+                    <label for="tipo-sistema">Tipo di sistema:</label>
+                    <select id="tipo-sistema" name="tipo-sistema">
+                        <option value="monofase">Monofase</option>
+                        <option value="trifase">Trifase</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="potenza">Potenza (kW):</label>
+                    <input type="number" id="potenza" name="potenza" step="0.1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tensione">Tensione (V):</label>
+                    <input type="number" id="tensione" name="tensione" value="230">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fattore-potenza">Fattore di potenza (cos φ):</label>
+                    <input type="number" id="fattore-potenza" name="fattore-potenza" step="0.01" min="0.1" max="1" value="0.9">
+                </div>
+                
+                <div class="form-group">
+                    <label for="lunghezza">Lunghezza cavo (m):</label>
+                    <input type="number" id="lunghezza" name="lunghezza" step="0.1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="materiale-conduttore">Materiale conduttore:</label>
+                    <select id="materiale-conduttore" name="materiale-conduttore">
+                        <option value="rame">Rame</option>
+                        <option value="alluminio">Alluminio</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tipo-isolamento">Tipo di isolamento:</label>
+                    <select id="tipo-isolamento" name="tipo-isolamento">
+                        <option value="pvc">PVC</option>
+                        <option value="epr">EPR/XLPE</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="metodo-posa">Metodo di posa:</label>
+                    <select id="metodo-posa" name="metodo-posa">
+                        <option value="aria">In aria</option>
+                        <option value="tubo">In tubo</option>
+                        <option value="canale">In canale</option>
+                        <option value="interrato">Interrato</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="temperatura-ambiente">Temperatura ambiente (°C):</label>
+                    <input type="number" id="temperatura-ambiente" name="temperatura-ambiente" value="30">
+                </div>
+                
+                <div class="form-group">
+                    <label for="caduta-tensione-max">Caduta di tensione massima (%):</label>
+                    <input type="number" id="caduta-tensione-max" name="caduta-tensione-max" step="0.1" min="0.1" max="10" value="4">
+                </div>
+                
+                <button type="submit" class="btn-calcola">Calcola</button>
+            </form>
+        </div>
+        
+        <div class="results-container">
+            <h2>Risultati</h2>
+            <div id="risultati" class="hidden">
+                <div class="result-item">
+                    <span>Corrente di impiego:</span>
+                    <span id="corrente-impiego">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Sezione minima per portata:</span>
+                    <span id="sezione-portata">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Sezione minima per caduta di tensione:</span>
+                    <span id="sezione-caduta">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Sezione consigliata:</span>
+                    <span id="sezione-consigliata">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Portata massima:</span>
+                    <span id="portata-massima">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Caduta di tensione effettiva:</span>
+                    <span id="caduta-tensione-effettiva">-</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="STR0009.js"></script>
+</body>
+</html> 

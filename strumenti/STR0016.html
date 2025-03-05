@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertitore di Pressioni - Calcoli Idraulici ed Elettrici</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="strumenti.css">
+</head>
+<body>
+    <header>
+        <h1>Convertitore di Pressioni</h1>
+        <a href="../index.html" class="btn-back">Torna alla Home</a>
+    </header>
+
+    <main class="strumento-container">
+        <div class="form-container">
+            <form id="form-pressioni">
+                <div class="form-group">
+                    <label for="valore">Valore:</label>
+                    <input type="number" id="valore" name="valore" step="any" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="unita-da">Da:</label>
+                    <select id="unita-da" name="unita-da">
+                        <option value="pa">Pascal (Pa)</option>
+                        <option value="kpa">Kilopascal (kPa)</option>
+                        <option value="mpa">Megapascal (MPa)</option>
+                        <option value="bar">Bar (bar)</option>
+                        <option value="mbar">Millibar (mbar)</option>
+                        <option value="atm">Atmosfera (atm)</option>
+                        <option value="mmhg">Millimetri di mercurio (mmHg)</option>
+                        <option value="mmh2o">Millimetri di colonna d'acqua (mmH₂O)</option>
+                        <option value="psi">Libbre per pollice quadrato (psi)</option>
+                        <option value="torr">Torr</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="unita-a">A:</label>
+                    <select id="unita-a" name="unita-a">
+                        <option value="pa">Pascal (Pa)</option>
+                        <option value="kpa">Kilopascal (kPa)</option>
+                        <option value="mpa">Megapascal (MPa)</option>
+                        <option value="bar" selected>Bar (bar)</option>
+                        <option value="mbar">Millibar (mbar)</option>
+                        <option value="atm">Atmosfera (atm)</option>
+                        <option value="mmhg">Millimetri di mercurio (mmHg)</option>
+                        <option value="mmh2o">Millimetri di colonna d'acqua (mmH₂O)</option>
+                        <option value="psi">Libbre per pollice quadrato (psi)</option>
+                        <option value="torr">Torr</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-calcola">Converti</button>
+            </form>
+        </div>
+        
+        <div class="results-container">
+            <h2>Risultato</h2>
+            <div id="risultati" class="hidden">
+                <div class="result-item">
+                    <span>Valore convertito:</span>
+                    <span id="valore-convertito">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Fattore di conversione:</span>
+                    <span id="fattore-conversione">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Tutte le conversioni:</span>
+                    <div id="tutte-conversioni" class="conversioni-container">
+                        <!-- Conversioni in tutte le unità -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="STR0016.js"></script>
+</body>
+</html> 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolo Serie Termostatica - Calcoli Idraulici ed Elettrici</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="strumenti.css">
+</head>
+<body>
+    <header>
+        <h1>Calcolo Serie Termostatica</h1>
+        <a href="../index.html" class="btn-back">Torna alla Home</a>
+    </header>
+
+    <main class="strumento-container">
+        <div class="form-container">
+            <form id="form-serie-termostatica">
+                <div class="form-group">
+                    <label for="tipo-serie">Tipo di serie:</label>
+                    <select id="tipo-serie" name="tipo-serie">
+                        <option value="renard">Serie di Renard (R)</option>
+                        <option value="e">Serie E</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="precisione">Precisione:</label>
+                    <select id="precisione" name="precisione">
+                        <option value="5">5 valori per decade (R5, E6)</option>
+                        <option value="10">10 valori per decade (R10, E12)</option>
+                        <option value="20">20 valori per decade (R20, E24)</option>
+                        <option value="40">40 valori per decade (R40, E48)</option>
+                        <option value="80">80 valori per decade (R80, E96)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="valore-iniziale">Valore iniziale:</label>
+                    <input type="number" id="valore-iniziale" name="valore-iniziale" step="0.01" value="1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="valore-finale">Valore finale:</label>
+                    <input type="number" id="valore-finale" name="valore-finale" step="0.01" value="10">
+                </div>
+                
+                <div class="form-group">
+                    <label for="unita-misura">Unità di misura:</label>
+                    <input type="text" id="unita-misura" name="unita-misura" value="°C">
+                </div>
+                
+                <div class="form-group">
+                    <label for="arrotondamento">Cifre decimali:</label>
+                    <input type="number" id="arrotondamento" name="arrotondamento" min="0" max="6" value="2">
+                </div>
+                
+                <button type="submit" class="btn-calcola">Calcola</button>
+            </form>
+        </div>
+        
+        <div class="results-container">
+            <h2>Risultati</h2>
+            <div id="risultati" class="hidden">
+                <div class="result-item">
+                    <span>Tipo di serie:</span>
+                    <span id="serie-tipo">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Numero di valori:</span>
+                    <span id="numero-valori">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Rapporto tra valori successivi:</span>
+                    <span id="rapporto-valori">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Valori della serie:</span>
+                    <div id="valori-serie" class="valori-container">-</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="STR0013.js"></script>
+</body>
+</html> 

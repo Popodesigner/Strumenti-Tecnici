@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimensionamento Circolatori - Calcoli Idraulici</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="strumenti.css">
+</head>
+<body>
+    <header>
+        <h1>Dimensionamento Circolatori</h1>
+        <a href="../index.html" class="btn-back">Torna alla Home</a>
+    </header>
+
+    <main class="strumento-container">
+        <div class="form-container">
+            <form id="form-circolatore">
+                <div class="form-group">
+                    <label for="tipo-impianto">Tipo di impianto:</label>
+                    <select id="tipo-impianto" name="tipo-impianto">
+                        <option value="riscaldamento">Riscaldamento</option>
+                        <option value="raffrescamento">Raffrescamento</option>
+                        <option value="acs">Ricircolo ACS</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="potenza-termica">Potenza termica (kW):</label>
+                    <input type="number" id="potenza-termica" name="potenza-termica" step="0.1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="delta-t">Differenza di temperatura (°C):</label>
+                    <input type="number" id="delta-t" name="delta-t" step="1" value="10" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="perdite-carico">Perdite di carico totali (kPa):</label>
+                    <input type="number" id="perdite-carico" name="perdite-carico" step="0.1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lunghezza-circuito">Lunghezza circuito (m):</label>
+                    <input type="number" id="lunghezza-circuito" name="lunghezza-circuito" step="0.1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="percentuale-glicole">Percentuale di glicole (%):</label>
+                    <input type="number" id="percentuale-glicole" name="percentuale-glicole" min="0" max="50" value="0">
+                </div>
+                
+                <button type="submit" class="btn-calcola">Calcola</button>
+            </form>
+        </div>
+        
+        <div class="results-container">
+            <h2>Risultati</h2>
+            <div id="risultati" class="hidden">
+                <div class="result-item">
+                    <span>Portata richiesta:</span>
+                    <span id="portata-risultato">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Prevalenza richiesta:</span>
+                    <span id="prevalenza-risultato">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Potenza elettrica stimata:</span>
+                    <span id="potenza-elettrica">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Diametro consigliato:</span>
+                    <span id="diametro-consigliato">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Velocità nel circuito:</span>
+                    <span id="velocita-circuito">-</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="STR0006.js"></script>
+</body>
+</html> 

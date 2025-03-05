@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolo Efficienza Caldaia - Calcoli Idraulici</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="strumenti.css">
+</head>
+<body>
+    <header>
+        <h1>Calcolo Efficienza Caldaia</h1>
+        <a href="../index.html" class="btn-back">Torna alla Home</a>
+    </header>
+
+    <main class="strumento-container">
+        <div class="form-container">
+            <form id="form-efficienza">
+                <div class="form-group">
+                    <label for="tipo-caldaia">Tipo di caldaia:</label>
+                    <select id="tipo-caldaia" name="tipo-caldaia">
+                        <option value="tradizionale">Tradizionale</option>
+                        <option value="condensazione">A condensazione</option>
+                        <option value="biomassa">A biomassa</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="potenza-nominale">Potenza nominale (kW):</label>
+                    <input type="number" id="potenza-nominale" name="potenza-nominale" step="0.1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="combustibile">Tipo di combustibile:</label>
+                    <select id="combustibile" name="combustibile">
+                        <option value="metano">Gas metano</option>
+                        <option value="gpl">GPL</option>
+                        <option value="gasolio">Gasolio</option>
+                        <option value="pellet">Pellet</option>
+                        <option value="legna">Legna</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="consumo">Consumo combustibile:</label>
+                    <input type="number" id="consumo" name="consumo" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="unita-misura">Unità di misura:</label>
+                    <select id="unita-misura" name="unita-misura">
+                        <option value="m3">m³ (metano)</option>
+                        <option value="kg">kg (GPL, pellet, legna)</option>
+                        <option value="l">litri (gasolio)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="temperatura-fumi">Temperatura fumi (°C):</label>
+                    <input type="number" id="temperatura-fumi" name="temperatura-fumi" value="120">
+                </div>
+                
+                <div class="form-group">
+                    <label for="temperatura-ambiente">Temperatura ambiente (°C):</label>
+                    <input type="number" id="temperatura-ambiente" name="temperatura-ambiente" value="20">
+                </div>
+                
+                <div class="form-group">
+                    <label for="co2">Percentuale CO₂ nei fumi (%):</label>
+                    <input type="number" id="co2" name="co2" min="0" max="20" step="0.1" value="8.5">
+                </div>
+                
+                <button type="submit" class="btn-calcola">Calcola</button>
+            </form>
+        </div>
+        
+        <div class="results-container">
+            <h2>Risultati</h2>
+            <div id="risultati" class="hidden">
+                <div class="result-item">
+                    <span>Potere calorifico inferiore:</span>
+                    <span id="potere-calorifico">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Energia in ingresso:</span>
+                    <span id="energia-ingresso">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Perdite per calore sensibile:</span>
+                    <span id="perdite-sensibile">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Perdite per incombusti:</span>
+                    <span id="perdite-incombusti">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Rendimento di combustione:</span>
+                    <span id="rendimento-combustione">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Rendimento stagionale stimato:</span>
+                    <span id="rendimento-stagionale">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Classe di efficienza:</span>
+                    <span id="classe-efficienza">-</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="STR0007.js"></script>
+</body>
+</html> 

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolo Potenza Elettrica - Calcoli Idraulici</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="strumenti.css">
+</head>
+<body>
+    <header>
+        <h1>Calcolo Potenza Elettrica</h1>
+        <a href="../index.html" class="btn-back">Torna alla Home</a>
+    </header>
+
+    <main class="strumento-container">
+        <div class="form-container">
+            <form id="form-potenza-elettrica">
+                <div class="form-group">
+                    <label for="tipo-calcolo">Tipo di calcolo:</label>
+                    <select id="tipo-calcolo" name="tipo-calcolo">
+                        <option value="potenza">Calcolo potenza da tensione e corrente</option>
+                        <option value="corrente">Calcolo corrente da potenza e tensione</option>
+                        <option value="tensione">Calcolo tensione da potenza e corrente</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tipo-sistema">Tipo di sistema:</label>
+                    <select id="tipo-sistema" name="tipo-sistema">
+                        <option value="monofase">Monofase</option>
+                        <option value="trifase">Trifase</option>
+                        <option value="continua">Corrente continua</option>
+                    </select>
+                </div>
+                
+                <div id="input-potenza" class="form-group">
+                    <label for="potenza">Potenza (kW):</label>
+                    <input type="number" id="potenza" name="potenza" step="0.01">
+                </div>
+                
+                <div id="input-tensione" class="form-group">
+                    <label for="tensione">Tensione (V):</label>
+                    <input type="number" id="tensione" name="tensione" value="230">
+                </div>
+                
+                <div id="input-corrente" class="form-group">
+                    <label for="corrente">Corrente (A):</label>
+                    <input type="number" id="corrente" name="corrente" step="0.1">
+                </div>
+                
+                <div id="input-fattore-potenza" class="form-group">
+                    <label for="fattore-potenza">Fattore di potenza (cos φ):</label>
+                    <input type="number" id="fattore-potenza" name="fattore-potenza" step="0.01" min="0.1" max="1" value="0.9">
+                </div>
+                
+                <div id="input-rendimento" class="form-group">
+                    <label for="rendimento">Rendimento (%):</label>
+                    <input type="number" id="rendimento" name="rendimento" step="0.1" min="1" max="100" value="100">
+                </div>
+                
+                <button type="submit" class="btn-calcola">Calcola</button>
+            </form>
+        </div>
+        
+        <div class="results-container">
+            <h2>Risultati</h2>
+            <div id="risultati" class="hidden">
+                <div id="result-potenza" class="result-item">
+                    <span>Potenza attiva:</span>
+                    <span id="potenza-risultato">-</span>
+                </div>
+                <div id="result-potenza-apparente" class="result-item">
+                    <span>Potenza apparente:</span>
+                    <span id="potenza-apparente">-</span>
+                </div>
+                <div id="result-potenza-reattiva" class="result-item">
+                    <span>Potenza reattiva:</span>
+                    <span id="potenza-reattiva">-</span>
+                </div>
+                <div id="result-corrente" class="result-item">
+                    <span>Corrente:</span>
+                    <span id="corrente-risultato">-</span>
+                </div>
+                <div id="result-tensione" class="result-item">
+                    <span>Tensione:</span>
+                    <span id="tensione-risultato">-</span>
+                </div>
+                <div id="result-potenza-meccanica" class="result-item">
+                    <span>Potenza meccanica:</span>
+                    <span id="potenza-meccanica">-</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="STR0010.js"></script>
+</body>
+</html> 

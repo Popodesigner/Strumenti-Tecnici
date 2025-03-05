@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimensionamento Termico e Differenziale - Calcoli Idraulici ed Elettrici</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="strumenti.css">
+</head>
+<body>
+    <header>
+        <h1>Dimensionamento Termico e Differenziale</h1>
+        <a href="../index.html" class="btn-back">Torna alla Home</a>
+    </header>
+
+    <main class="strumento-container">
+        <div class="form-container">
+            <form id="form-dimensionamento">
+                <div class="form-group">
+                    <label for="tipo-sistema">Tipo di sistema:</label>
+                    <select id="tipo-sistema" name="tipo-sistema">
+                        <option value="monofase">Monofase</option>
+                        <option value="trifase">Trifase</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tipo-carico">Tipo di carico:</label>
+                    <select id="tipo-carico" name="tipo-carico">
+                        <option value="resistivo">Resistivo (illuminazione, riscaldamento)</option>
+                        <option value="induttivo">Induttivo (motori, trasformatori)</option>
+                        <option value="capacitivo">Capacitivo (condensatori, UPS)</option>
+                        <option value="misto">Misto (impianto generale)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="potenza">Potenza (kW):</label>
+                    <input type="number" id="potenza" name="potenza" step="0.1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tensione">Tensione (V):</label>
+                    <input type="number" id="tensione" name="tensione" value="230">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fattore-potenza">Fattore di potenza (cos φ):</label>
+                    <input type="number" id="fattore-potenza" name="fattore-potenza" step="0.01" min="0.1" max="1" value="0.9">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fattore-utilizzo">Fattore di utilizzo:</label>
+                    <input type="number" id="fattore-utilizzo" name="fattore-utilizzo" step="0.01" min="0.1" max="1" value="0.8">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fattore-contemporaneita">Fattore di contemporaneità:</label>
+                    <input type="number" id="fattore-contemporaneita" name="fattore-contemporaneita" step="0.01" min="0.1" max="1" value="0.7">
+                </div>
+                
+                <div class="form-group">
+                    <label for="tipo-ambiente">Tipo di ambiente:</label>
+                    <select id="tipo-ambiente" name="tipo-ambiente">
+                        <option value="normale">Normale</option>
+                        <option value="umido">Umido</option>
+                        <option value="bagnato">Bagnato</option>
+                        <option value="corrosivo">Corrosivo</option>
+                        <option value="esplosivo">A rischio esplosione</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="selettivita">Selettività richiesta:</label>
+                    <select id="selettivita" name="selettivita">
+                        <option value="no">No</option>
+                        <option value="parziale">Parziale</option>
+                        <option value="totale">Totale</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-calcola">Calcola</button>
+            </form>
+        </div>
+        
+        <div class="results-container">
+            <h2>Risultati</h2>
+            <div id="risultati" class="hidden">
+                <div class="result-item">
+                    <span>Corrente di impiego:</span>
+                    <span id="corrente-impiego">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Corrente di progetto:</span>
+                    <span id="corrente-progetto">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Interruttore magnetotermico consigliato:</span>
+                    <span id="interruttore-termico">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Curva di intervento consigliata:</span>
+                    <span id="curva-intervento">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Potere di interruzione minimo:</span>
+                    <span id="potere-interruzione">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Differenziale consigliato:</span>
+                    <span id="differenziale">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Sezione minima cavo:</span>
+                    <span id="sezione-minima">-</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="STR0012.js"></script>
+</body>
+</html> 

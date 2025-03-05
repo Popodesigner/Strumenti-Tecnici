@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolo Perdite di Carico - Calcoli Idraulici</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="strumenti.css">
+</head>
+<body>
+    <header>
+        <h1>Calcolo Perdite di Carico</h1>
+        <a href="../index.html" class="btn-back">Torna alla Home</a>
+    </header>
+
+    <main class="strumento-container">
+        <div class="form-container">
+            <form id="form-perdite-carico">
+                <div class="form-group">
+                    <label for="tipo-calcolo">Tipo di calcolo:</label>
+                    <select id="tipo-calcolo" name="tipo-calcolo">
+                        <option value="tubazione">Perdite distribuite (tubazione)</option>
+                        <option value="componenti">Perdite concentrate (componenti)</option>
+                    </select>
+                </div>
+                
+                <div id="sezione-tubazione">
+                    <h3>Dati tubazione</h3>
+                    
+                    <div class="form-group">
+                        <label for="lunghezza">Lunghezza tubazione (m):</label>
+                        <input type="number" id="lunghezza" name="lunghezza" step="0.1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="diametro">Diametro interno (mm):</label>
+                        <input type="number" id="diametro" name="diametro" step="0.1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="portata">Portata (l/s):</label>
+                        <input type="number" id="portata" name="portata" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="materiale">Materiale tubazione:</label>
+                        <select id="materiale" name="materiale">
+                            <option value="acciaio">Acciaio</option>
+                            <option value="rame">Rame</option>
+                            <option value="pvc">PVC</option>
+                            <option value="pex">PEX</option>
+                            <option value="multistrato">Multistrato</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="rugosita">Rugosità (mm):</label>
+                        <input type="number" id="rugosita" name="rugosita" step="0.001" value="0.045" readonly>
+                    </div>
+                </div>
+                
+                <div id="sezione-componenti" class="hidden">
+                    <h3>Dati componenti</h3>
+                    
+                    <div class="form-group">
+                        <label for="diametro-comp">Diametro tubazione (mm):</label>
+                        <input type="number" id="diametro-comp" name="diametro-comp" step="0.1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="portata-comp">Portata (l/s):</label>
+                        <input type="number" id="portata-comp" name="portata-comp" step="0.01" required>
+                    </div>
+                    
+                    <div class="componenti-container">
+                        <h4>Componenti:</h4>
+                        
+                        <div class="componente-item">
+                            <label for="curve90">Curve a 90°:</label>
+                            <input type="number" id="curve90" name="curve90" value="0" min="0">
+                        </div>
+                        
+                        <div class="componente-item">
+                            <label for="curve45">Curve a 45°:</label>
+                            <input type="number" id="curve45" name="curve45" value="0" min="0">
+                        </div>
+                        
+                        <div class="componente-item">
+                            <label for="valvole">Valvole a sfera:</label>
+                            <input type="number" id="valvole" name="valvole" value="0" min="0">
+                        </div>
+                        
+                        <div class="componente-item">
+                            <label for="valvole-ritegno">Valvole di ritegno:</label>
+                            <input type="number" id="valvole-ritegno" name="valvole-ritegno" value="0" min="0">
+                        </div>
+                        
+                        <div class="componente-item">
+                            <label for="tee-passaggio">Tee (passaggio diretto):</label>
+                            <input type="number" id="tee-passaggio" name="tee-passaggio" value="0" min="0">
+                        </div>
+                        
+                        <div class="componente-item">
+                            <label for="tee-derivazione">Tee (derivazione):</label>
+                            <input type="number" id="tee-derivazione" name="tee-derivazione" value="0" min="0">
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-calcola">Calcola</button>
+            </form>
+        </div>
+        
+        <div class="results-container">
+            <h2>Risultati</h2>
+            <div id="risultati" class="hidden">
+                <div class="result-item">
+                    <span>Velocità del fluido:</span>
+                    <span id="velocita-fluido">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Numero di Reynolds:</span>
+                    <span id="numero-reynolds">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Perdita di carico unitaria:</span>
+                    <span id="perdita-unitaria">-</span>
+                </div>
+                <div class="result-item">
+                    <span>Perdita di carico totale:</span>
+                    <span id="perdita-totale">-</span>
+                </div>
+                <div id="result-item-lunghezza-eq" class="result-item hidden">
+                    <span>Lunghezza equivalente componenti:</span>
+                    <span id="lunghezza-equivalente">-</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="STR0005.js"></script>
+</body>
+</html> 

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strumenti Calcoli Idraulici ed Elettrici</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --primary-dark: #2980b9;
+            --secondary-color: #2ecc71;
+            --accent-color: #f39c12;
+            --dark-color: #34495e;
+            --light-color: #ecf0f1;
+            --danger-color: #e74c3c;
+            --text-color: #2c3e50;
+            --card-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f7fa;
+            padding-bottom: 50px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+        
+        header h1 {
+            font-weight: 600;
+            font-size: 2.5rem;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: var(--dark-color);
+            position: relative;
+            font-weight: 600;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+        
+        .strumento-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .strumento-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(45deg, rgba(52, 152, 219, 0.8), rgba(46, 204, 113, 0.8));
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .idraulici .card-header {
+            background: linear-gradient(45deg, rgba(52, 152, 219, 0.8), rgba(46, 204, 113, 0.8));
+        }
+        
+        .elettrici .card-header {
+            background: linear-gradient(45deg, rgba(155, 89, 182, 0.8), rgba(231, 76, 60, 0.8));
+        }
+        
+        .convertitori .card-header {
+            background: linear-gradient(45deg, rgba(243, 156, 18, 0.8), rgba(211, 84, 0, 0.8));
+        }
+        
+        .icon-container {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .card-description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .btn-calcola {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        
+        .idraulici .btn-calcola {
+            background: var(--primary-color);
+        }
+        
+        .elettrici .btn-calcola {
+            background: #9b59b6;
+        }
+        
+        .convertitori .btn-calcola {
+            background: var(--accent-color);
+        }
+        
+        .btn-calcola:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+        }
+        
+        .idraulici .btn-calcola:hover {
+            background: var(--primary-dark);
+        }
+        
+        .elettrici .btn-calcola:hover {
+            background: #8e44ad;
+        }
+        
+        .convertitori .btn-calcola:hover {
+            background: #d35400;
+        }
+        
+        .category-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: white;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animazioni */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .strumento-card {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .strumento-card:nth-child(1) { animation-delay: 0.1s; }
+        .strumento-card:nth-child(2) { animation-delay: 0.2s; }
+        .strumento-card:nth-child(3) { animation-delay: 0.3s; }
+        .strumento-card:nth-child(4) { animation-delay: 0.4s; }
+        .strumento-card:nth-child(5) { animation-delay: 0.5s; }
+        .strumento-card:nth-child(6) { animation-delay: 0.6s; }
+        .strumento-card:nth-child(7) { animation-delay: 0.7s; }
+        .strumento-card:nth-child(8) { animation-delay: 0.8s; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Strumenti per Calcoli Tecnici</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Strumenti Idraulici</h2>
+        <div class="grid-container">
+            <div class="strumento-card idraulici">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-water"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Tubazioni</h3>
+                        <p class="card-description">Calcolo e dimensionamento ottimale delle tubazioni in base a portata e velocità</p>
+                    </div>
+                    <a href="strumenti/STR0001.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Idraulica</span>
+            </div>
+            
+            <div class="strumento-card idraulici">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Pompe</h3>
+                        <p class="card-description">Calcolo della portata delle pompe in base a prevalenza e potenza</p>
+                    </div>
+                    <a href="strumenti/STR0002.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Idraulica</span>
+            </div>
+            
+            <div class="strumento-card idraulici">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Potenza Termica</h3>
+                        <p class="card-description">Calcolo del fabbisogno energetico e della potenza termica necessaria</p>
+                    </div>
+                    <a href="strumenti/STR0003.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Idraulica</span>
+            </div>
+            
+            <div class="strumento-card idraulici">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Vasi di Espansione</h3>
+                        <p class="card-description">Dimensionamento dei vasi di espansione per impianti termici</p>
+                    </div>
+                    <a href="strumenti/STR0004.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Idraulica</span>
+            </div>
+            
+            <div class="strumento-card idraulici">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Perdite di Carico</h3>
+                        <p class="card-description">Calcolo delle perdite di carico in tubazioni e componenti</p>
+                    </div>
+                    <a href="strumenti/STR0005.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Idraulica</span>
+            </div>
+            
+            <div class="strumento-card idraulici">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Circolatori</h3>
+                        <p class="card-description">Dimensionamento dei circolatori in base a portata e prevalenza</p>
+                    </div>
+                    <a href="strumenti/STR0006.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Idraulica</span>
+            </div>
+            
+            <div class="strumento-card idraulici">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-burn"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Efficienza Caldaie</h3>
+                        <p class="card-description">Calcolo del rendimento di combustione e stagionale delle caldaie</p>
+                    </div>
+                    <a href="strumenti/STR0007.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Idraulica</span>
+            </div>
+            
+            <div class="strumento-card idraulici">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Pompe di Calore</h3>
+                        <p class="card-description">Dimensionamento delle pompe di calore in base al fabbisogno termico</p>
+                    </div>
+                    <a href="strumenti/STR0008.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Idraulica</span>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Strumenti Elettrici</h2>
+        <div class="grid-container">
+            <div class="strumento-card elettrici">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Cavi Elettrici</h3>
+                        <p class="card-description">Dimensionamento dei cavi elettrici in base a potenza e lunghezza</p>
+                    </div>
+                    <a href="strumenti/STR0009.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Elettrico</span>
+            </div>
+            
+            <div class="strumento-card elettrici">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Potenza Elettrica</h3>
+                        <p class="card-description">Calcolo di potenza, tensione e corrente in sistemi elettrici</p>
+                    </div>
+                    <a href="strumenti/STR0010.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Elettrico</span>
+            </div>
+            
+            <div class="strumento-card elettrici">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-battery-half"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Caduta di Tensione</h3>
+                        <p class="card-description">Calcolo della caduta di tensione nei cavi elettrici</p>
+                    </div>
+                    <a href="strumenti/STR0011.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Elettrico</span>
+            </div>
+            
+            <div class="strumento-card elettrici">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Protezioni</h3>
+                        <p class="card-description">Dimensionamento di interruttori magnetotermici e differenziali</p>
+                    </div>
+                    <a href="strumenti/STR0012.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Elettrico</span>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Convertitori</h2>
+        <div class="grid-container">
+            <div class="strumento-card convertitori">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-ruler"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Unità di Misura</h3>
+                        <p class="card-description">Conversione tra diverse unità di misura per grandezze fisiche</p>
+                    </div>
+                    <a href="strumenti/STR0014.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Convertitore</span>
+            </div>
+            
+            <div class="strumento-card convertitori">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Temperature</h3>
+                        <p class="card-description">Conversione tra diverse scale di temperatura (Celsius, Fahrenheit, Kelvin)</p>
+                    </div>
+                    <a href="strumenti/STR0015.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Convertitore</span>
+            </div>
+            
+            <div class="strumento-card convertitori">
+                <div class="card-header">
+                    <div class="icon-container">
+                        <i class="fas fa-compress"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Pressioni</h3>
+                        <p class="card-description">Conversione tra diverse unità di misura della pressione</p>
+                    </div>
+                    <a href="strumenti/STR0016.html" class="btn-calcola">Apri strumento</a>
+                </div>
+                <span class="category-badge">Convertitore</span>
+            </div>
+        </div>
+    </main>
+</body>
+</html> 
